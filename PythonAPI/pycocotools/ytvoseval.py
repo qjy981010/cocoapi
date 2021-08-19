@@ -200,7 +200,8 @@ class YTVOSeval:
         def iou_seq(d_seq, g_seq):
             i = .0
             u = .0
-            for d, g in zip(d_seq, g_seq):
+            for g_i, g in enumerate(g_seq):
+                d = d_seq[g_i]
                 if d and g:
                     i += maskUtils.area(maskUtils.merge([d, g], True))
                     u += maskUtils.area(maskUtils.merge([d, g], False))
