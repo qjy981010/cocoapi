@@ -208,6 +208,7 @@ class OVISeval:
         def iou_seq(d_seq, g_seq):
             i = .0
             u = .0
+            assert len(d_seq) == len(g_seq), "The length of d_seq and g_seq don't match. Please refer to https://github.com/qjy981010/CMaskTrack-RCNN to generate the result json file."
             for d, g in zip(d_seq, g_seq):
                 if d and g:
                     i += maskUtils.area(maskUtils.merge([d, g], True))
